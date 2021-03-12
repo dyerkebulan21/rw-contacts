@@ -11,6 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 import parseISO from 'date-fns/parseISO'
 import { format } from 'date-fns'
 import {Typography} from '@material-ui/core'
+import {CopyToClipboardText} from '../../components/CopyToClipboardText'
 const useStyles = makeStyles({
     table: {
     
@@ -47,8 +48,9 @@ export const ContactsTable = ({data}) => {
                         {contact.dob.age}, years
                     </Typography>
                     </TableCell>
-                <TableCell >{contact.phone}</TableCell>
-                <TableCell >{contact.email}</TableCell>
+                    <TableCell >{contact.email}</TableCell>
+                <TableCell ><CopyToClipboardText text={contact.phone}/></TableCell>
+                
                 <TableCell >6</TableCell>
                 <TableCell >7</TableCell>
               </TableRow>
