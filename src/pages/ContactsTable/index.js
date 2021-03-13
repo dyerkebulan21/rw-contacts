@@ -12,6 +12,7 @@ import parseISO from 'date-fns/parseISO'
 import { format } from 'date-fns'
 import {Typography} from '@material-ui/core'
 import {CopyToClipboardText} from '../../components/CopyToClipboardText'
+import {NATIONALITIES_NAME} from '../../constants/nationalities'
 const useStyles = makeStyles({
     table: {
     
@@ -51,8 +52,11 @@ export const ContactsTable = ({data}) => {
                     <TableCell >{contact.email}</TableCell>
                 <TableCell ><CopyToClipboardText text={contact.phone}/></TableCell>
                 
-                <TableCell >6</TableCell>
-                <TableCell >7</TableCell>
+                <TableCell ><Typography >{contact.location.country} </Typography>
+                 <Typography>
+                 {contact.location.city} {contact.location.street.name}, {contact.location.street.number}
+                   </Typography> </TableCell>
+                <TableCell >{NATIONALITIES_NAME[contact.nat]}</TableCell>
               </TableRow>
             ))}
           </TableBody>
