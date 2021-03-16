@@ -9,6 +9,7 @@ import { ContactsTable } from '../ContactsTable'
 import { Box } from '@material-ui/core'
 import { ToggleButtonView } from '../../components/ToggleButtonView'
 import { DATAVIEWMODES } from './constants'
+import { CircularProgress } from '@material-ui/core';
 import {useDataViewMode} from './useDataViewMode'
 const useStyles = makeStyles((theme) => (
     createStyles({
@@ -47,7 +48,7 @@ export const Contacts = () => {
                 {
                     (() => {
                         if (contacts.isLoading) {
-                            return <div>...loading</div>
+                            return <CircularProgress data-testid="contacts-loader"/>
                         }
                         if (contacts.isError) {
                             return <div>...error</div>

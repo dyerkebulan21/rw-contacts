@@ -7,7 +7,7 @@ import {DATAVIEWMODES} from '../../pages/Contacts/constants'
 export const ToggleButtonView = ({dataViewMode, setDataViewMode}) => {
     const handleDataViewMode = useCallback((_, nextView) => {
         setDataViewMode(nextView);
-    });
+    },[setDataViewMode]);
     return(
         <ToggleButtonGroup  value={dataViewMode} exclusive onChange={handleDataViewMode}>
         <ToggleButton value={DATAVIEWMODES.TABLE} aria-label="list">
